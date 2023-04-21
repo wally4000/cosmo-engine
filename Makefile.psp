@@ -17,7 +17,7 @@ OBJS =                        src/actor.o \
 BUILD_PRX=1
 
 INCDIR = src/
-CFLAGS = -O2 -Wall `$(PSPDEV)/psp/bin/sdl2-config --cflags` -G0 -g
+CFLAGS = -O2 -Wall `$(PSPDEV)/psp/bin/sdl2-config --cflags` -G0 -g -D__PSP__
 CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
 ASFLAGS = $(CFLAGS)
 

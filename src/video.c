@@ -79,7 +79,11 @@ bool init_surface(VideoSurface *surface, int width, int height)
 
 bool video_init()
 {
+    #ifdef __PSP__
+    window = SDL_CreateWindow("Cosmo Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH*video_scale_factor, SCREEN_HEIGHT*video_scale_factor, SDL_WINDOW_FULLSCREEN);
+    #else
     window = SDL_CreateWindow("Cosmo Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH*video_scale_factor, SCREEN_HEIGHT*video_scale_factor, 0);
+    #endif
     if(window == NULL)
     {
         printf("Error: creating SDL Window. %s\n", SDL_GetError());
