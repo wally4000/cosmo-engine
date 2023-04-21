@@ -1,0 +1,28 @@
+TARGET = cosmo
+
+OBJS =                        src/actor.o \
+                        src/main.o \
+                        src/player.o \
+                        src/game.o src/palette.o src/util.o \
+                        src/map.o src/input.o src/dialog.o src/tile.o \
+                        src/files/vol.o src/files/file.o src/video.o \
+                        src/sound/music.o src/backdrop.o src/save.o \
+                        src/status.o src/actor_worktype.o \
+                        src/effects.o src/actor_collision.o src/actor_toss.o \
+                        src/font.o src/sound/sfx.o src/sound/audio.o \
+                        src/platforms.o src/sound/opl.o src/fullscreen_image.o \
+                        src/cartoon.o src/config.o src/high_scores.o \
+                        src/demo.o src/b800.o \
+
+BUILD_PRX=1
+
+INCDIR = src/
+CFLAGS = -O2 -Wall `$(PSPDEV)/psp/bin/sdl2-config --cflags` -G0 -g
+CXXFLAGS = $(CFLAGS) -fno-exceptions -fno-rtti
+ASFLAGS = $(CFLAGS)
+
+LIBDIR = 
+LIBS = -lSDL2 -lSDL2main -lGL -lvorbisfile -lvorbis -logg -lpspaudiolib -lpspaudio -lpspmp3 -lpspvfpu -lpspgu -lpspvram -lpsprtc -lpsphprm -lSDL2_mixer -lxmp
+
+PSPSDK=$(shell psp-config --pspsdk-path)
+include $(PSPSDK)/lib/build.mak
