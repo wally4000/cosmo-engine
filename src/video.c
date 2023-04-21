@@ -100,9 +100,12 @@ bool video_init()
 
     init_surface(&game_surface, SCREEN_WIDTH, SCREEN_HEIGHT);
     set_palette_on_surface(game_surface.surface);
-
+    
+    #ifdef __PSP__
     init_surface(&text_surface, SCREEN_WIDTH*2, SCREEN_HEIGHT*2);
+    #else 
     set_palette_on_surface(text_surface.surface);
+    #endif
     video_fill_surface_with_black(text_surface.surface);
 
     set_game_mode();
